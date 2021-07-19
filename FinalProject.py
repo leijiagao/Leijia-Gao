@@ -139,7 +139,7 @@ df[["Latitude", "Longitude","Burned Area"]] = df[["Latitude", "Longitude","Burne
 img = Image.open("Wildfire.jpg")
 st.markdown("<h1 style='text-align: center; color: Black;'>California WildFire</h1>", unsafe_allow_html=True)
 st.image(img,use_column_width=True,caption='Random image for sizing')
-your_name = st.text_input("Please input your Name: ", "")
+your_name = st.text_input("Please input your Name: ", "Leijia")
 Message = "Let's analyse the California Wild Fire Incident from 2013-2019"
 welcomeMessage = welcome(your_name)
 st.write(welcomeMessage)
