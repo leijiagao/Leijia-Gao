@@ -203,13 +203,13 @@ if page == "Main":
     # graphical output
     col1, col2 = st.beta_columns([3, 1])
     graphData = GraphingData()
-    col1.subheader("Historical number of fire by County")
+    col1.subheader("Historical Number of Fire by County")
     col1.area_chart(graphData)
-    col2.subheader("Number of fire by Count")
     col2.write(graphData)
 
     col3,col4 = st.beta_columns([1, 4])
     with col4:
+        col4.subheader("Historical Number of Fire by Year")
         pie()
     with col3:
         d = list(zip(YearName, YearFire))
