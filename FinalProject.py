@@ -67,6 +67,7 @@ def GraphingData():
 
 def welcome(name,msg="Let's analyse the California Wild Fire Incident from 2013-2019"):
     print("Hello", name,",",msg)
+    return f"Hello, {name} , {msg}"
 
 def pie():
     global YearList,YearFire,YearName
@@ -139,6 +140,7 @@ img = Image.open("Wildfire.jpg")
 st.markdown("<h1 style='text-align: center; color: Black;'>California WildFire</h1>", unsafe_allow_html=True)
 st.image(img,use_column_width=True,caption='Random image for sizing')
 your_name = st.text_input("Name: ", "Leijia")
+Message = "Let's analyse the California Wild Fire Incident from 2013-2019"
 welcomeMessage = welcome(your_name)
 st.write(welcomeMessage)
 page = st.selectbox("Choose your page", ["Main", "Search By County","Year"])
