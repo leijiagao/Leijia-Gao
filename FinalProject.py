@@ -7,7 +7,6 @@ import pandas as pd
 import mapbox as mb
 import statistics
 import datetime as dt
-import matplotlib.pyplot as plt
 
 
 
