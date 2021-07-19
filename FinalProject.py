@@ -136,15 +136,8 @@ df[["Latitude", "Longitude","Burned Area"]] = df[["Latitude", "Longitude","Burne
 
 #Header/County Selection
 img = Image.open("Wildfire.jpg")
-
-
-#col2.title('California WildFire')
-
 st.markdown("<h1 style='text-align: center; color: Black;'>California WildFire</h1>", unsafe_allow_html=True)
 st.image(img,use_column_width=True,caption='Random image for sizing')
-#col1, col2, col3 = st.beta_columns([1,1,1])
-#col1,col2,col3 = st.beta_columns([1,1,2.5])
-#col2.image(img,width = 800)
 your_name = st.text_input("Name: ", "Leijia")
 welcomeMessage = welcome(your_name)
 st.write(welcomeMessage)
@@ -152,6 +145,7 @@ page = st.selectbox("Choose your page", ["Main", "Search By County","Year"])
 if page == "Main":
     st.header("Dataset Preview")
     st.dataframe(df)
+    st.text("")
 
     # calculate the fields
     TotalFire = len(Fire_name)
@@ -199,23 +193,26 @@ if page == "Main":
         col_width = max(len(str(word)) for row in outTable2 for word in row) + 5  # padding
         for a in outTable2:
             st.text("".join(str(word).ljust(col_width) for word in a))
+    
+    st.text("")
 
     # graphical output
     col1, col2 = st.beta_columns([3, 1])
     graphData = GraphingData()
     col1.subheader("Historical Number of Fire by County")
     col1.area_chart(graphData)
+    col2.subheader("")
     col2.write(graphData)
 
     col3,col4 = st.beta_columns([1, 4])
     with col4:
-        col4.subheader("Historical Number of Fire by Year")
         pie()
     with col3:
         d = list(zip(YearName, YearFire))
         df = pd.DataFrame(data=d, columns=['Year', 'Number'])
         # make Year the index
         df.set_index('Year', inplace=True)
+        st.subheader("Historical Number of Fire by Year")
         st.table(df)
 
     #st.header('Chart')
